@@ -54,17 +54,36 @@
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div class="outer-wrapper">
+<div class="outer-wrapper frontpage">
     {{> theme_moove/adventist-stripe }}
 
 
-        <div id="page-wrapper" class="d-print-block">
+        <div id="page-wrapper" class="d-print-block frontpage">
 
             {{{ output.standard_top_of_body_html }}}
 
-            {{> theme_moove/navbar }}
 
-            <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container bg-white">
+
+            {{! {{> theme_moove/navbar }}
+
+            
+
+            <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container">
+                <div class="login">
+                    <div class="large-logo-holder">
+                        <img src="/theme/moove/pix/discipleship-institute.webp" alt="Discipleship Institute Logo" class="large-logo">
+                    </div>   
+                    <div class="button-holder">
+                        <a href="/login/index.php">
+                            <button class="btn btn-primary btn-block btn-lg" type="button" id="loginbtn">Log in</button>
+                        </a>
+                        <a href="/login/signup.php">
+                            <button class="btn btn-primary btn-block btn-lg" type="button" id="register">Register</button>
+                        </a>                    
+                    </div>                          
+                </div>
+   
+
                 {{#slidercount}}
                     <div id="mooveslideshow" class="container-fluid">
                         <div id="carousel-indicators" class="carousel slide carousel-fade" data-ride="carousel">
@@ -110,8 +129,10 @@
 
                 {{#displaymarketingbox}}
                     <section id="feature">
+
                         <div class="container">
-                            <div class="row">
+
+                            <div class="row" id="marketing-outer">
                                 <div class="col-lg-4 my-3">
                                     <h3 class="h1 mt-3 mb-3">{{{marketingheading}}}</h3>
                                     <div class="marketing-content">{{{marketingcontent}}}</div>
@@ -173,7 +194,7 @@
                         </div>
                     </section>
                 {{/numbersfrontpage}}
-
+<!--
                 <div id="topofscroll">
                     <div id="page-content" class="d-print-block main-inner">
                         <div id="region-main-box">
@@ -185,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-
+-->
                 {{#faqenabled}}
                     <section id="faq" class="scale-up scale-up-show">
                         <div class="moove-container-fluid">

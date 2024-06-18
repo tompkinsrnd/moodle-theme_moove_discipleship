@@ -319,38 +319,61 @@ a {
 
 .outer-wrapper {
     display: flex;
+
+    #page-wrapper {
+        flex: 1;
+        height: auto;
+    }
+
+    .adventist-stripe {
+        background-color: #2f557f;
+        width: 10vw;
+        
+        order: 999;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-width: 50px;
+        max-width: 100px;
+        
+        
+        
+    
+        /*
+        position: fixed;
+        right: 0;
+        top: 0;
+        */
+        // position: sticky;
+        // top: 0;
+        // right: 0;
+    
+    
+        .logo {
+            position: sticky;
+            top: 2vh;
+            // right: 0;
+            fill: white;
+            width: 65%;
+            // margin-top: 2vh;
+        }
+    }
 }
 
-#page-wrapper {
-    flex: 1;
-    height: auto;
-}
+
+
 
 #page.drawers {
     flex: 1;
 }
 
-.adventist-stripe {
-    background-color: #2f557f;
-    width: 15vw;
-    max-width: 150px;
-    order: 999;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-    
-    
 
-    /*
-    position: fixed;
-    right: 0;
-    top: 0;
-    */
-    .logo {
-        fill: white;
-        width: 65%;
-        margin-top: 30px;
-    }
+
+
+div button.btn-footer-popover {
+    display:none !important;
 }
+
+.footer-content-popover div { display: none; }
+
