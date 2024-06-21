@@ -80,7 +80,21 @@ function theme_moove_get_extra_scss($theme) {
 
     $content .= 'body.pagelayout-login #page { ';
     // $content .= "background-image: url('$loginbgimgurl'); background-size: cover;";
-    $content .= "background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/theme/moove/pix/login-bg.jpg'); background-size: cover; background-position: top;";
+    // $content .= "background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/theme/moove/pix/frontpage-feature-bg.jpg'); background-size: cover; background-position: top;";
+
+    $content .= "background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.0)), ";
+    $content .= "url('/theme/moove/pix/people-friendship-hangout-traveling-destination-ca.jpg'); ";
+    $content .= "background-size: cover; ";
+    $content .= "background-position: center; ";
+    $content .= "background-repeat: no-repeat; ";
+    $content .= "background-attachment: fixed; ";
+
+    // background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('/theme/moove/pix/people-friendship-hangout-traveling-destination-ca.jpg');
+    // background-size: cover;     
+    // background-position: 70% 50%;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed; 
+
 
     
     $content .= ' }';
