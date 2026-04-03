@@ -34,7 +34,7 @@
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
 
-<div id="page-wrapper">
+<div id="page-wrapper" style="height: 100%">
 
     {{{ output.standard_top_of_body_html }}}
 
@@ -60,5 +60,19 @@
 M.util.js_pending('theme_boost/loader');
 require(['theme_boost/loader'], function() {
   M.util.js_complete('theme_boost/loader');
+});
+
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        if ($('.login-container:has(.loginform)').length === 0) {
+            $('.login-container').css({
+                'margin': '0 auto',
+                'background-color': '#ffffffe0',
+                'padding': '2rem',
+                'box-shadow': '0 0.5rem 1rem rgb(0 0 0 / 15%)',
+                'border-radius': '0.5rem'
+            });
+        }
+    });
 });
 {{/js}}

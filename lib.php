@@ -78,7 +78,12 @@ function theme_moove_get_extra_scss($theme) {
     }
 
     $content .= 'body.pagelayout-login #page { ';
-    $content .= "background-color: initial; background-image: url('$loginbgimgurl'); background-size: cover;";
+    $content .= "background-image: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.0)), ";
+    $content .= "url('/theme/moove/pix/people-friendship-hangout-traveling-destination-ca.jpg'); ";
+    $content .= "background-size: cover; ";
+    $content .= "background-position: center; ";
+    $content .= "background-repeat: no-repeat; ";
+    $content .= "background-attachment: fixed; ";
     $content .= ' }';
 
     // Always return the background image with the scss when we have it.

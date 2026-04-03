@@ -8,15 +8,16 @@
 
 .navbar.fixed-top {
     border: none;
-    height: 70px;
+    height: 100px;
+    position: inherit;
     background-color: var(--moove-navbar-bg-color);
 
     .primary-navigation {
         .navigation {
-            height: 70px;
+            height: 100px;
 
             .nav-link {
-                height: 70px;
+                height: 100px;
                 border: none;
                 border-radius: 0;
 
@@ -42,7 +43,7 @@
     z-index: 1021;
     background-color: var(--moove-secondary-navigation-bg-color);
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5));
-    position: fixed;
+    position: inherit;
     top: 70px;
 
     > .moove-container-fluid {

@@ -42,7 +42,7 @@ body {
 
 .moove-container-fluid,
 .container-fluid {
-    max-width: 85%;
+    max-width: 95%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -320,6 +320,7 @@ body[data-bs-theme="dark"] {
 }
 
 @include media-breakpoint-up(md) {
+
     .pagelayout-standard #page.drawers .main-inner,
     body.limitedwidth #page.drawers .main-inner,
     #page.drawers .main-inner,
@@ -330,7 +331,7 @@ body[data-bs-theme="dark"] {
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: 85%;
+        max-width: 95%;
         padding-right: 15px;
         padding-left: 15px;
         margin-right: auto;
@@ -343,6 +344,7 @@ body[data-bs-theme="dark"] {
 }
 
 @include media-breakpoint-down(md) {
+
     .pagelayout-standard #page.drawers .main-inner,
     body.limitedwidth #page.drawers .main-inner,
     #page.drawers .main-inner,
@@ -355,4 +357,44 @@ body[data-bs-theme="dark"] {
     .container-xxl {
         max-width: 95%;
     }
+}
+
+.outer-wrapper {
+    display: flex;
+
+    #page-wrapper {
+        flex: 1;
+        height: auto;
+    }
+
+    .adventist-stripe {
+        background-color: #2f557f;
+        width: 10vw;
+        order: 999;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        min-width: 50px;
+        max-width: 100px;
+
+        .logo {
+            position: sticky;
+            top: 2vh;
+            fill: white;
+            width: 65%;
+        }
+    }
+}
+
+#page.drawers {
+    flex: 1;
+}
+
+div button.btn-footer-popover {
+    display: none !important;
+}
+
+.footer-content-popover div {
+    display: none;
 }

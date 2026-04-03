@@ -53,13 +53,28 @@
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
-<div id="page-wrapper" class="d-print-block">
 
-    {{{ output.standard_top_of_body_html }}}
+<div class="outer-wrapper frontpage">
+    {{> theme_moove/adventist-stripe }}
 
-    {{> theme_moove/navbar }}
+    <div id="page-wrapper" class="d-print-block frontpage">
 
-    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container bg-white">
+        {{{ output.standard_top_of_body_html }}}
+
+        <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers drag-container">
+            <div class="login">
+                <div class="large-logo-holder">
+                    <img src="/theme/moove/pix/discipleship-institute.webp" alt="Discipleship Institute Logo" class="large-logo">
+                </div>
+                <div class="button-holder">
+                    <a href="/login/index.php">
+                        <button class="btn btn-primary btn-block btn-lg" type="button" id="loginbtn">Log in</button>
+                    </a>
+                    <a href="/login/signup.php">
+                        <button class="btn btn-primary btn-block btn-lg" type="button" id="register">Register</button>
+                    </a>
+                </div>
+            </div>
         {{#slidercount}}
             <div id="mooveslideshow" class="container-fluid">
                 <div id="moove-carousel" class="carousel slide">
@@ -103,10 +118,10 @@
             </div>
         {{/slidercount}}
 
-        {{#displaymarketingbox}}
-            <section id="feature">
-                <div class="container">
-                    <div class="row">
+            {{#displaymarketingbox}}
+                <section id="feature">
+                    <div class="container">
+                        <div class="row" id="marketing-outer">
                         <div class="col-lg-4 my-3">
                             <h3 class="h1 mt-3 mb-3">{{{marketingheading}}}</h3>
                             <div class="marketing-content">{{{marketingcontent}}}</div>
@@ -181,36 +196,36 @@
             </div>
         </div>
 
-        {{#faqenabled}}
-            <section id="faq" class="scale-up scale-up-show">
-                <div class="moove-container-fluid">
-                    <h2>{{#str}}faq, theme_moove{{/str}}</h2>
+            {{#faqenabled}}
+                <section id="faq" class="scale-up scale-up-show">
+                    <div class="moove-container-fluid">
+                        <h2>{{#str}}faq, theme_moove{{/str}}</h2>
 
-                    <div class="accordion" id="accordion-faq">
-                        {{#faq}}
-                            <div class="accordion-item mb-1">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button {{^active}}collapsed{{/active}}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{{id}}}" aria-expanded="true" aria-controls="collapse-{{{id}}}">
-                                        {{{question}}}
-                                    </button>
-                                </h2>
-                                <div id="collapse-{{{id}}}" class="accordion-collapse collapse {{#active}}show{{/active}}" data-bs-parent="#accordion-faq">
-                                    <div class="accordion-body">
-                                        {{{answer}}}
+                        <div class="accordion" id="accordion-faq">
+                            {{#faq}}
+                                <div class="accordion-item mb-1">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button {{^active}}collapsed{{/active}}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{{id}}}" aria-expanded="true" aria-controls="collapse-{{{id}}}">
+                                            {{{question}}}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse-{{{id}}}" class="accordion-collapse collapse {{#active}}show{{/active}}" data-bs-parent="#accordion-faq">
+                                        <div class="accordion-body">
+                                            {{{answer}}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {{/faq}}
+                            {{/faq}}
+                        </div>
                     </div>
-                </div>
-            </section>
-        {{/faqenabled}}
+                </section>
+            {{/faqenabled}}
+
+            {{> theme_moove/footer }}
+        </div>
+        {{{ output.standard_after_main_region_html }}}
     </div>
-    {{> theme_moove/footer }}
-
-    {{{ output.standard_after_main_region_html }}}
 </div>
-
 
 </body>
 </html>
