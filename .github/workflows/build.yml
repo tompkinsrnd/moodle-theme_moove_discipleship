@@ -26,12 +26,16 @@ jobs:
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
 
+      - name: Generate date tag
+        id: tag
+        run: echo "date=$(date -u +'%Y%m%d.%H%M%S')" >> "$GITHUB_OUTPUT"
+
       - uses: docker/metadata-action@v5
         id: meta
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
           tags: |
-            type=sha,prefix=sha-,format=short
+            type=raw,value=${{ steps.tag.outputs.date }}
             type=raw,value=latest
 
       - uses: docker/build-push-action@v6
