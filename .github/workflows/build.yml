@@ -7,6 +7,8 @@ on:
 env:
   REGISTRY: harbor.ops.tompkinsrnd.com
   IMAGE: tompkinsrnd/moodle-theme-moove
+  GITOPS_REPO: tompkinsrnd/snec-gitops-argocd
+  DEPLOY_FILE: apps/snec-moodle/deployment-moodle.yaml
 
 jobs:
   build:
@@ -46,3 +48,22 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Update gitops repo with new image tag
+        env:
+          TAG: ${{ steps.tag.outputs.date }}
+          SSH_KEY: ${{ secrets.GITOPS_DEPLOY_KEY }}
+        run: |
+          eval "$(ssh-agent -s)"
+          echo "$SSH_KEY" | ssh-add -
+          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          git clone --depth 1 git@github.com:${GITOPS_REPO}.git /tmp/gitops
+          cd /tmp/gitops
+          sed -i "s|image: ${REGISTRY}/${IMAGE}:.*|image: ${REGISTRY}/${IMAGE}:${TAG}|" "${DEPLOY_FILE}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${DEPLOY_FILE}"
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore: update theme image to ${TAG}"
+          git push
