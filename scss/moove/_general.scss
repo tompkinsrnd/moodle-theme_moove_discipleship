@@ -398,3 +398,10 @@ div button.btn-footer-popover {
 .footer-content-popover div {
     display: none;
 }
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-color: #fff;
+    --bs-btn-disabled-color: #fff;
+}
