@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: harbor.ops.tompkinsrnd.com
-  IMAGE: snec/moodle-theme-moove
+  IMAGE: tompkinsrnd/moodle-theme-moove
 
 jobs:
   build:
